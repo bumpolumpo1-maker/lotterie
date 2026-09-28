@@ -1,0 +1,9 @@
+{
+  "name": "FunHouse — Play Money Arcade",
+  "short_name": "FunHouse",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#070b16",
+  "theme_color": "#8b5cf6",
+  "icons": []
+}

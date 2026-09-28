@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0b1020" />
+  <meta name="description" content="FunHouse — private party games with fictional play currency." />
+  <title>FunHouse — Play Money Arcade</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='46' fill='%238b5cf6'/%3E%3Ctext x='50' y='64' font-size='54' text-anchor='middle' fill='white'%3EF%3C/text%3E%3C/svg%3E" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand" data-route="home">
+        <div class="brand-mark">F</div>
+        <div>
+          <div class="brand-name">FunHouse</div>
+          <div class="brand-sub">PLAY MONEY ARCADE</div>
+        </div>
+      </div>
+
+      <div class="play-money-card">
+        <span class="eyebrow">DEMO WALLET</span>
+        <div class="wallet-balance"><span id="walletBalance">10,000</span> <span class="coin">FC</span></div>
+        <div class="wallet-actions">
+          <button class="tiny-btn" id="dailyBonusBtn">+ Daily</button>
+          <button class="tiny-btn ghost" id="resetBalanceBtn">Reset</button>
+        </div>
+      </div>
+
+      <nav class="main-nav" aria-label="Hauptnavigation">
+        <button class="nav-item active" data-route="home"><span class="nav-icon">⌂</span> Lobby</button>
+        <button class="nav-item" data-route="games"><span class="nav-icon">◈</span> Games <span class="nav-badge">60+</span></button>
+        <button class="nav-item" data-route="rooms"><span class="nav-icon">♟</span> Rooms</button>
+        <button class="nav-item" data-route="friends"><span class="nav-icon">♥</span> Freunde <span class="nav-badge" id="friendsBadge">3</span></button>
+        <button class="nav-item" data-route="chat"><span class="nav-icon">◌</span> Chat <span class="nav-badge live">LIVE</span></button>
+        <button class="nav-item" data-route="leaderboard"><span class="nav-icon">♛</span> Rangliste</button>
+        <button class="nav-item" data-route="missions"><span class="nav-icon">✦</span> Quests</button>
+        <button class="nav-item" data-route="events"><span class="nav-icon">⚡</span> Events <span class="nav-badge live">LIVE</span></button>
+        <button class="nav-item" data-route="shop"><span class="nav-icon">◈</span> Shop</button>
+        <button class="nav-item" data-route="achievements"><span class="nav-icon">🏆</span> Badges</button>
+        <button class="nav-item" data-route="stats"><span class="nav-icon">◉</span> Stats</button>
+      </nav>
+
+      <div class="sidebar-spacer"></div>
+      <nav class="secondary-nav">
+        <button class="nav-item" data-route="settings"><span class="nav-icon">⚙</span> Einstellungen</button>
+        <button class="nav-item" data-route="admin"><span class="nav-icon">⌘</span> Admin</button>
+      </nav>
+
+      <div class="sidebar-user" id="profileQuick">
+        <div class="avatar" id="sidebarAvatar">A</div>
+        <div class="sidebar-user-copy">
+          <strong id="sidebarName">Alex</strong>
+          <span id="sidebarStatus">Online · Level 12</span>
+        </div>
+        <button class="icon-btn" title="Profil bearbeiten" data-route="settings">⋯</button>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <header class="topbar">
+        <div class="breadcrumb" id="breadcrumb">Lobby <span>•</span> Private Play</div>
+        <div class="topbar-actions">
+          <button class="icon-btn" id="notifyBtn" title="Benachrichtigungen">♧<span class="notif-dot"></span></button>
+          <button class="room-pill" id="roomPill" data-route="rooms"><span class="status-dot"></span> Room <strong id="roomCodeLabel">FH-7K2P</strong></button>
+          <button class="profile-pill" data-route="settings"><div class="avatar small" id="topAvatar">A</div><span id="topName">Alex</span><span class="chevron">⌄</span></button>
+        </div>
+      </header>
+
+      <div id="toastStack" class="toast-stack" aria-live="polite"></div>
+      <div id="appView" class="page-view"></div>
+    </main>
+  </div>
+
+  <div class="modal-backdrop hidden" id="modalBackdrop">
+    <div class="modal" id="gameModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle"></div>
+  </div>
+
+  <template id="toastTemplate"><div class="toast"><div class="toast-icon">✦</div><div><strong class="toast-title"></strong><div class="toast-text"></div></div></div></template>
+  <script src="app.js"></script>
+</body>
+</html>
